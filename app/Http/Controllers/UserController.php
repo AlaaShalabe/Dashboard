@@ -36,8 +36,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $data = User::orderBy('id','DESC')->paginate(5);
-        $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('users.index',compact('data' , 'roles'))
+        return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -60,21 +59,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+
+        $attributes = request()->validate([
             'username' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
             'roles_name' => 'required'
+
         ]);
+        $user = User::create($attributes);
+        $user->assignRole($request->input('roles_name'));
 
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
 
         return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+        ->with('success','User created successfully');
+
     }
 
     /**
@@ -116,28 +115,29 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-        $request->validate( [
+
+        $this->validate($request, [
+
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'min:8',
-            'roles_name' => 'nullable',
-        ]);
+            'roles_name' => 'required'
+            ]);
 
-        $input = $request->all();
-        if(!empty($input['password'])){
-            $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = Arr::except($input,array('password'));
-        }
+            $input = $request->all();
+            if(!empty($input['password'])){
+            $input['password'] = $input['password'] ;
+            }else{
+            $input = array_except($input,array('password'));
+            }
+            $user = User::find($id);
+            $user->update($input);
+            DB::table('model_has_roles')->where('model_id',$id)->delete();
+            $user->assignRole($request->input('roles_name'));
+            return redirect()->route('users.index')
+            ->with('success','User updated successfully' );
 
-        $user = User::find($id);
-        $user->update($input);
-        DB::table('model_has_roles')->where('model_id',$id)->delete();
 
-        $user->assignRole($request->input('roles_name'));
-
-        return redirect()->route('users.index')
-                        ->with('success','User updated successfully');
     }
 
     /**

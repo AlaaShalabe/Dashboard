@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:topics-list|topics-create|topics-edit|topics-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:topics-create', ['only' => ['create','store']]);
+         $this->middleware('permission:topics-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:topics-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

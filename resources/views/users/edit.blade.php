@@ -13,7 +13,7 @@
             <div class="col-auto my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        {{ auth()->user()->username ?? 'User Name' }}
+                        {{ $user->username ?? 'User Name' }}
                     </h5>
                     <p class="mb-0 font-weight-bold text-sm">
                         Public Relations
@@ -46,13 +46,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Username</label>
-                                    <input class="form-control" type="text" name="username" value="{{ old('username', auth()->user()->username) }}">
+                                    <input class="form-control" type="text" name="username" value="{{ old('username',  $user->username) }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Email address</label>
-                                    <input class="form-control" type="email" name="email" value="{{ old('email', auth()->user()->email) }}">
+                                    <input class="form-control" type="email" name="email" value="{{ old('email',  $user->email) }}">
                                 </div>
                             </div>
 
@@ -60,7 +60,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Password</label>
-                                    <input class="form-control" type="text" name="password" value="{{ old('Password', auth()->user()->password) }}">
+                                    <input class="form-control" type="text" name="password" value="{{ old('Password',  $user->password) }}">
                                 </div>
                             </div>
                             <hr class="horizontal dark">
