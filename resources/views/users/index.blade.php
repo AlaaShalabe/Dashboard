@@ -50,6 +50,7 @@
                                         </div>
                                     </td>
                                     <td>
+
                                         @if (!empty($user->getRoleNames()))
                                         @foreach ($user->getRoleNames() as $v)
                                         <div class="d-flex flex-column justify-content-center">
