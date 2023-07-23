@@ -51,8 +51,10 @@
                                     </td>
                                     <td>
                                         @if (!empty($user->getRoleNames()))
-                                        @foreach ($user->getRoleNames() as $key => $v)
-                                        <label class="badge badge-success">{{ $v }}</label>
+                                        @foreach ($user->getRoleNames() as $v)
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">{{$v}}</h6>
+                                        </div>
                                         @endforeach
                                         @endif
                                     </td>
