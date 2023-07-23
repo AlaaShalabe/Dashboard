@@ -9,7 +9,9 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Crypt;
+
+
+
 
 class UserController extends Controller
 {
@@ -18,11 +20,24 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+         $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:user-create', ['only' => ['create','store']]);
+         $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
+
+
+
+
+
+
     public function index(Request $request)
     {
         $data = User::orderBy('id','DESC')->paginate(5);
-
-        return view('users.index',compact('data'))
+        $roles = Role::orderBy('id','DESC')->paginate(5);
+        return view('users.index',compact('data' , 'roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -85,8 +100,6 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        // $password = $user->password;
-        // $dcrypt = Crypt::decryptString( $password);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
 

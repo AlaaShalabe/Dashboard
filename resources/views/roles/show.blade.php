@@ -14,9 +14,9 @@
         <div class="card mb-4">
             <div class="card-header  ">
                 <div class="row">
-                    <div class="col-md-8 d-flex align-items-center">
+                    <div class="col-md-12 d-flex align-items-center">
                         <h6>{{$role->name}}</h6>
-                        <div class=" text-center">
+                        <div class="col-md-10 text-end">
                             <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success" style=""> Edit</a>
                             <form action="{{ route('roles.destroy', $role->id) }}" method="POST" class="d-inline">
                                 @csrf

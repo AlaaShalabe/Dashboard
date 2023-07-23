@@ -17,21 +17,38 @@
      public function run()
      {
          $user = User::create([
-             'username' => 'OwnerRFDF',
-             'firstname' => 'Owner',
+             'username' => 'RFDF',
+             'firstname' => 'Admin',
              'lastname' => 'RFDF',
-             'email' => 'test@gmail.com',
-             'password' => bcrypt('12345678'),
-             'roles_name' => ["owner"] ,
+             'email' => 'admin@gmail.com',
+             'password' => '12345678',
+             'roles_name' => ["Admin"] ,
 
          ]);
+         $user2 = User::create([
+            'username' => 'Nermen',
+            'firstname' => 'ne',
+            'lastname' => 'es',
+            'email' => 'nana@gmail.com',
+            'password' => '12345678',
+            'roles_name' => ["Writer"] ,
 
-         $role = Role::create(['name' => 'owner']);
+        ]);
+
+         $role = Role::create(['name' => 'Admin']);
 
          $permissions = Permission::pluck('id','id')->all();
 
          $role->syncPermissions($permissions);
 
          $user->assignRole([$role->id]);
+
+         //user2
+         $role2 = Role::create(['name' => 'Writer']);
+
+         $role2->givePermissionTo('role-list');
+
+
+         $user2->assignRole([$role2->id]);
      }
  }
