@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Article;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -39,14 +40,20 @@ class ArticleController extends Controller
             'content' => 'required|string',
         ]);
 
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->storeAs('images', $imageName, 'public');
+        }
+
         $article = Article::create([
             'title' => $request->title,
             'user_id' => auth()->user()->id,
-            'content' => $request->content
+            'content' => $request->content,
+            'image' => $imageName
         ]);
-        // if ($request->hasFile('image')) {
-        //     $news->addMediaFromRequest('image')->toMediaCollection('images');
-        // }
+
         return redirect()->route('articles.index')
             ->with('success', 'Article created successfully');
     }
@@ -92,11 +99,14 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->content = $request->content;
 
-        if ($request->hasFile('image')) {
-            $article->clearMediaCollection('images');
-            $article->addMediaFromRequest('image')->toMediaCollection('images');
-        }
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
+            Storage::disk('public')->delete('images/' . $article->image);
+            $newImage = $request->file('image');
+            $newImageName = time() . '_' . $newImage->getClientOriginalName();
+            $newImage->storeAs('images', $newImageName, 'public');
+            $article->image = $newImageName;
+        }
         $article->save();
 
         return redirect()->route('articles.index');

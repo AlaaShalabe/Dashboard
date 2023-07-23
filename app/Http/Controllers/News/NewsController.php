@@ -51,9 +51,7 @@ class NewsController extends Controller
             'topic_id' => $request->topic_id,
             'content' => $request->content
         ]);
-        // if ($request->hasFile('image')) {
-        //     $news->addMediaFromRequest('image')->toMediaCollection('images');
-        // }
+
         return redirect()->route('news.index')->with('success', 'News created successfully');
     }
 
@@ -100,10 +98,6 @@ class NewsController extends Controller
         $news->topic_id = $request->topic_id;
         $news->content = $request->content;
 
-        if ($request->hasFile('image')) {
-            $news->clearMediaCollection('images');
-            $news->addMediaFromRequest('image')->toMediaCollection('images');
-        }
 
         $news->save();
 

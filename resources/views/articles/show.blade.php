@@ -30,6 +30,9 @@
                     <div class="card">
 
                         <div class="card-body px-4 pt-2">
+                            <p>
+                                <img src="{{ asset('storage/images/' . $article->image) }}" alt="Placeholder image">
+                            </p>
                             <p><strong>Auth:</strong> {{ $article->user->username }}</p>
                             <p><strong>Title:</strong> {{ $article->title }}</p>
                             <p><strong>Content:</strong> {{ $article->content }}</p>

@@ -52,6 +52,8 @@
 
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm"></h6>
+                                                        <img src="{{ asset('storage/images/' . $article->image) }}"
+                                                            alt="Placeholder image">
                                                     </div>
                                                 </div>
                                             </td>
