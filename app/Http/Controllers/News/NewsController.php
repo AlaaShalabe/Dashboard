@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+
+
+    function __construct()
+    {
+         $this->middleware('permission:news-list|news-create|news-edit|news-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:news-create', ['only' => ['create','store']]);
+         $this->middleware('permission:news-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:news-delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
