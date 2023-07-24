@@ -11,7 +11,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::orderBy('created_at', 'desc')->get();
-        if ($$articles->isEmpty()) {
+        if ($articles->isEmpty()) {
             return response()->json(['message' => 'No Articles', 'articles' => []]);
         }
 
