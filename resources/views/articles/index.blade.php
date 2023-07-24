@@ -14,7 +14,7 @@
                             </div>
                             <div class="col-md-4 text-end">
                                 <a href="{{ route('articles.create') }}" class="btn btn-success me-2" style="">Add
-                                    News</a>
+                                    Articles</a>
                             </div>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2" style="margin-top:3%">
@@ -48,7 +48,7 @@
 
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <h6 class="mb-0 text-sm"></h6>
-                                                            <img src="{{ asset('storage/images/' . $article->image) }}"
+                                                            <img src="{{ asset('images/' . $article->image) }}"
                                                                 alt="Placeholder image">
                                                         </div>
                                                     </div>

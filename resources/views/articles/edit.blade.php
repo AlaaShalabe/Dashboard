@@ -39,6 +39,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Image</label>
+                                                    <img src="{{ asset('images/' . $article->image) }}"
+                                                        alt="Placeholder image">
                                                     <input class="form-control" type="file" name="image"
                                                         required="">
                                                 </div>
