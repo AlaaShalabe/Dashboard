@@ -7,9 +7,15 @@ use Illuminate\Validation\Rule;
 
 class UserProfileController extends Controller
 {
-    public function show()
+
+    public function show($id)
     {
-        return view('pages.user-profile');
+        $user = User::find($id);
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+
+        return view('users.edit',compact('user','roles','userRole'));
+
     }
 
     public function update(Request $request)
