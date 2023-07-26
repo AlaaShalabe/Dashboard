@@ -29,9 +29,20 @@
                                             {{-- Name --}}
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Title</label>
+                                                    <label for="example-text-input" class="form-control-label">Title in
+                                                        English</label>
                                                     <input class="form-control" type="text"
-                                                        value="{{ old('title', $article->title) }}" name="title"
+                                                        value="{{ old('title_en', $article->title_en) }}" name="title_en"
+                                                        required="">
+                                                </div>
+                                            </div>
+                                            {{-- Name --}}
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Title in
+                                                        Arabic</label>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ old('title_ar', $article->title_ar) }}" name="title_ar"
                                                         required="">
                                                 </div>
                                             </div>
@@ -49,9 +60,19 @@
 
                                             <div class="row mb-4">
                                                 <div class="col-sm-12">
-                                                    <label>Content</label>
-                                                    <textarea class="form-control @error('content') is-invalid @enderror" id="blog-description" name="content"
-                                                        cols="30" rows="10" required>{{ $article->content }}</textarea>
+                                                    <label>Content in English</label>
+                                                    <textarea class="form-control @error('content_en') is-invalid @enderror" id="blog-description" name="content_en"
+                                                        cols="30" rows="10" required>{{ $article->content_en }}</textarea>
+
+                                                </div>
+                                            </div>
+                                            {{-- Content --}}
+
+                                            <div class="row mb-4">
+                                                <div class="col-sm-12">
+                                                    <label>Content in Arabic</label>
+                                                    <textarea class="form-control @error('content_ar') is-invalid @enderror" id="blog-description" name="content_ar"
+                                                        cols="30" rows="10" required>{{ $article->content_ar }}</textarea>
 
                                                 </div>
                                             </div>

@@ -48,8 +48,10 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|string',
-            'content' => 'required|string',
+            'title_en' => 'required|string',
+            'title_ar' => 'required|string',
+            'content_en' => 'required|string',
+            'content_ar' => 'required|string',
         ]);
 
 
@@ -60,9 +62,11 @@ class ArticleController extends Controller
         }
 
         $article = Article::create([
-            'title' => $request->title,
+            'title_en' => $request->title_en,
+            'title_ar' => $request->title_ar,
             'user_id' => auth()->user()->id,
-            'content' => $request->content,
+            'content_en' => $request->content_en,
+            'content_ar' => $request->content_ar,
             'image' => $imageName
         ]);
 
@@ -104,12 +108,16 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $data = $request->validate([
-            'title' => 'string',
-            'content' => 'string',
+            'title_en' => 'string',
+            'title_ar' => 'string',
+            'content_en' => 'string',
+            'content_ar' => 'string',
         ]);
 
-        $article->title = $request->title;
-        $article->content = $request->content;
+        $article->title_en = $request->title_en;
+        $article->title_ar = $request->title_ar;
+        $article->content_en = $request->content_en;
+        $article->content_ar = $request->content_ar;
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 

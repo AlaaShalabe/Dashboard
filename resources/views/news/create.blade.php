@@ -27,8 +27,18 @@
                                             {{-- Name --}}
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Title</label>
-                                                    <input class="form-control" type="text" name="title"
+                                                    <label for="example-text-input" class="form-control-label">Title in
+                                                        English</label>
+                                                    <input class="form-control" type="text" name="title_en"
+                                                        required="">
+                                                </div>
+                                            </div>
+                                            {{-- Name --}}
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Title in
+                                                        Arabic</label>
+                                                    <input class="form-control" type="text" name="title_ar"
                                                         required="">
                                                 </div>
                                             </div>
@@ -41,7 +51,7 @@
                                                             @foreach ($topics as $topic)
                                                                 <option value="{{ $topic->id }}"
                                                                     {{ $topic->id == old('topic_id') ? 'selected' : '' }}>
-                                                                    {{ $topic->name }}
+                                                                    {{ $topic->getLocalized('name') }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -56,9 +66,19 @@
 
                                             <div class="row mb-4">
                                                 <div class="col-sm-12">
-                                                    <label>Content</label>
-                                                    <textarea class="form-control @error('description') is-invalid @enderror" id="blog-description" name="content"
-                                                        cols="30" rows="10" required>{{ old('content') }}</textarea>
+                                                    <label>Content in English</label>
+                                                    <textarea class="form-control @error('content_en') is-invalid @enderror" id="blog-description" name="content_en"
+                                                        cols="30" rows="10" required>{{ old('content_en') }}</textarea>
+
+                                                </div>
+                                            </div>
+                                            {{-- Content --}}
+
+                                            <div class="row mb-4">
+                                                <div class="col-sm-12">
+                                                    <label>Content in English</label>
+                                                    <textarea class="form-control @error('content_ar') is-invalid @enderror" id="blog-description" name="content_ar"
+                                                        cols="30" rows="10" required>{{ old('content_ar') }}</textarea>
 
                                                 </div>
                                             </div>

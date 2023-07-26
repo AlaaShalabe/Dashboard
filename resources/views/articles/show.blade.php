@@ -38,8 +38,8 @@
                                             <img src="{{ asset('images/' . $article->image) }}" alt="Placeholder image">
                                         </p>
                                         <p><strong>Auth:</strong> {{ $article->user->username }}</p>
-                                        <p><strong>Title:</strong> {{ $article->title }}</p>
-                                        <p><strong>Content:</strong> {{ $article->content }}</p>
+                                        <p><strong>Title:</strong> {{ $article->getLocalized('title') }}</p>
+                                        <p><strong>Content:</strong> {{ $article->getLocalized('content') }}</p>
                                         <p><strong>Created at:</strong> {{ $article->created_at->format('d - M') }}</p>
 
                                     </div>

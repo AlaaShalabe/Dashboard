@@ -61,12 +61,12 @@
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0"
                                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                                        {{ $article->title }}</p>
+                                                        {{ $article->getLocalized('title') }}</p>
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0"
                                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                                        {{ $article->content }}</p>
+                                                        {{ $article->getLocalized('content') }}</p>
                                                 </td>
 
                                                 <td class="align-middle text-end">

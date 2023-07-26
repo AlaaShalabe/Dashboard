@@ -28,9 +28,20 @@
                                             {{-- Name --}}
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Title</label>
+                                                    <label for="example-text-input" class="form-control-label">Title in
+                                                        English</label>
                                                     <input class="form-control" type="text"
-                                                        value="{{ old('title', $news->title) }}" name="title"
+                                                        value="{{ old('title_en', $news->title_en) }}" name="title_en"
+                                                        required="">
+                                                </div>
+                                            </div>
+                                            {{-- Name --}}
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Title in
+                                                        Arabic</label>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ old('title_ae', $news->title_ae) }}" name="title_ae"
                                                         required="">
                                                 </div>
                                             </div>
@@ -43,7 +54,7 @@
                                                             @foreach ($topics as $topic)
                                                                 <option value="{{ $topic->id }}"
                                                                     {{ $topic->id == old('topic_id') ? 'selected' : '' }}>
-                                                                    {{ $topic->name }}
+                                                                    {{ $topic->getLocalized('name') }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -58,9 +69,19 @@
 
                                             <div class="row mb-4">
                                                 <div class="col-sm-12">
-                                                    <label>Content</label>
-                                                    <textarea class="form-control @error('description') is-invalid @enderror" id="blog-description" name="content"
-                                                        cols="30" rows="10" required>{{ $news->content }}</textarea>
+                                                    <label>Content in English</label>
+                                                    <textarea class="form-control @error('content_en') is-invalid @enderror" id="blog-description" name="content_en"
+                                                        cols="30" rows="10" required>{{ $news->content_en }}</textarea>
+
+                                                </div>
+                                            </div>
+                                            {{-- Content --}}
+
+                                            <div class="row mb-4">
+                                                <div class="col-sm-12">
+                                                    <label>Content in Arabic</label>
+                                                    <textarea class="form-control @error('content_ar') is-invalid @enderror" id="blog-description" name="content_ar"
+                                                        cols="30" rows="10" required>{{ $news->content_ar }}</textarea>
 
                                                 </div>
                                             </div>

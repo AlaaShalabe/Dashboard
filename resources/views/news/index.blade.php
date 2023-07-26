@@ -50,7 +50,7 @@
 
 
                                                 <td class="align-middle text-center text-sm">
-                                                    <p class="text-sm font-weight-bold mb-0">{{ $new->title }}</p>
+                                                    <p class="text-sm font-weight-bold mb-0">{{ $news->getLocalized('title') }}</p>
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0"
@@ -60,7 +60,7 @@
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0"
                                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                                        {{ $new->content }}</p>
+                                                        {{ $news->getLocalized('content') }}</p>
                                                 </td>
 
                                                 <td class="align-middle text-end">

@@ -11,10 +11,10 @@ class TopicController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:topics-list|topics-create|topics-edit|topics-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:topics-create', ['only' => ['create','store']]);
-         $this->middleware('permission:topics-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:topics-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:topics-list|topics-create|topics-edit|topics-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:topics-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:topics-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:topics-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -46,7 +46,8 @@ class TopicController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|string|unique:topics,name'
+            'name_en' => 'required|string|unique:topics,name',
+            'name_ar' => 'required|string|unique:topics,name'
         ]);
 
         $topic = Topic::create($data);
@@ -85,9 +86,12 @@ class TopicController extends Controller
     public function update(Request $request, Topic $topic)
     {
         $request->validate([
-            'name' => 'string|unique:topics,name'
+            'name_en' => 'string|unique:topics,name',
+            'name_ar' => 'string|unique:topics,name',
+
         ]);
-        $topic->name = $request->input('name');
+        $topic->name_en = $request->input('name_en');
+        $topic->name_ar = $request->input('name_ar');
         $topic->save();
         return redirect()->route('topics.index');
     }

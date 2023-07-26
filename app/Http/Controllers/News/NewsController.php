@@ -13,10 +13,10 @@ class NewsController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:news-list|news-create|news-edit|news-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:news-create', ['only' => ['create','store']]);
-         $this->middleware('permission:news-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:news-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:news-list|news-create|news-edit|news-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:news-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:news-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:news-delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -51,15 +51,19 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|string',
+            'title_en' => 'required|string',
+            'title_ar' => 'required|string',
             'topic_id' => 'required|numeric|exists:topics,id',
-            'content' => 'required|string',
+            'content_en' => 'required|string',
+            'content_ar' => 'required|string',
         ]);
         //dd($request);
         $news = News::create([
-            'title' => $request->title,
+            'title_en' => $request->title_en,
+            'title_ar' => $request->title_ar,
             'topic_id' => $request->topic_id,
-            'content' => $request->content
+            'content_en' => $request->content_en,
+            'content_ar' => $request->content_ar
         ]);
 
         return redirect()->route('news.index')->with('success', 'News created successfully');
@@ -99,14 +103,19 @@ class NewsController extends Controller
     public function update(Request $request, News $news)
     {
         $data = $request->validate([
-            'title' => 'string',
+            'title_en' => 'string',
+            'title_ar' => 'string',
+            'content_en' => 'string',
+            'content_ar' => 'string',
             'topic_id' => 'numeric|exists:topics,id',
-            'content' => 'string',
-        ]);
 
-        $news->title = $request->title;
+        ]);
+        $news->title_en = $request->title_en;
+        $news->title_ar = $request->title_ar;
+        $news->content_en = $request->content_en;
+        $news->content_ar = $request->content_ar;
         $news->topic_id = $request->topic_id;
-        $news->content = $request->content;
+
 
 
         $news->save();
