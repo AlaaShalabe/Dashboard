@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\News;
+use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,7 @@ class HomeController extends Controller
         $articles = Article::all();
         $users = User::all();
         $news = News::all();
-        return view('pages.dashboard', ['articles' => $articles, 'users' => $users, 'news' => $news]);
+        $topics = Topic::all();
+        return view('pages.dashboard', ['articles' => $articles, 'users' => $users, 'news' => $news, 'topics' => $topics]);
     }
 }
