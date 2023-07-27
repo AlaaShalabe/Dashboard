@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('topic_id')->constrained()->cascadeOnDelete();
             $table->longText('content_en');
             $table->longText('content_ar');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

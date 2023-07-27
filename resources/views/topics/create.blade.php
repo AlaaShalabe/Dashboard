@@ -26,8 +26,17 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Name</label>
-                                                    <input class="form-control" type="text" name="name"
+                                                    <label for="example-text-input" class="form-control-label">Name in
+                                                        English</label>
+                                                    <input class="form-control" type="text" name="name_en"
+                                                        required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Name in
+                                                        Arabic</label>
+                                                    <input class="form-control" type="text" name="name_ar"
                                                         required="">
                                                 </div>
                                             </div>

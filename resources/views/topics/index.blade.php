@@ -42,7 +42,8 @@
                                                             <div class="d-flex px-3 py-1">
 
                                                                 <div class="d-flex flex-column justify-content-center">
-                                                                    <h6 class="mb-0 text-sm">{{ $topic->name }}</h6>
+                                                                    <h6 class="mb-0 text-sm">
+                                                                        {{ $topic->getLocalized('name') }}</h6>
                                                                 </div>
                                                             </div>
                                                         </td>

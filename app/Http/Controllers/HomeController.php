@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $articles = Article::all();
+        $users = User::all();
+        $news = News::all();
+        return view('pages.dashboard', ['articles' => $articles, 'users' => $users, 'news' => $news]);
     }
 }

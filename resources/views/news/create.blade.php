@@ -82,6 +82,14 @@
 
                                                 </div>
                                             </div>
+                                            {{-- Image --}}
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Image</label>
+                                                    <input class="form-control" type="file" name="image"
+                                                        required="">
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="text-center">
                                             <a href="{{ route('news.index') }}" class="btn btn-info">Back</a>

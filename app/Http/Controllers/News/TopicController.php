@@ -46,9 +46,10 @@ class TopicController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name_en' => 'required|string|unique:topics,name',
-            'name_ar' => 'required|string|unique:topics,name'
+            'name_en' => 'required|string|unique:topics,name_en',
+            'name_ar' => 'required|string|unique:topics,name_ar'
         ]);
+     //   dd($request);
 
         $topic = Topic::create($data);
         return view('topics.index');

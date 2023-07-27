@@ -45,11 +45,10 @@
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-3 py-1">
-
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <h6 class="mb-0 text-sm"></h6>
                                                             <img src="{{ asset('images/' . $article->image) }}"
-                                                                alt="Placeholder image">
+                                                                alt="Placeholder image" width="50" height="50">
                                                         </div>
                                                     </div>
                                                 </td>

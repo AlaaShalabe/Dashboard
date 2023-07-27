@@ -69,6 +69,7 @@ class ArticleController extends Controller
             'content_ar' => $request->content_ar,
             'image' => $imageName
         ]);
+        
 
         return redirect()->route('articles.index')
             ->with('success', 'Article created successfully');

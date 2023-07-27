@@ -17,6 +17,7 @@ class News extends Model
         'content_en',
         'content_ar',
         'topic_id',
+        'image'
 
     ];
 

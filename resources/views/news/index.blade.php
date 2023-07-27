@@ -28,7 +28,9 @@
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Image
+                                            </th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Title
                                             </th>
@@ -47,20 +49,30 @@
                                     <tbody>
                                         @foreach ($news as $new)
                                             <tr>
+                                                <td>
+                                                    <div class="d-flex px-3 py-1">
 
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm"></h6>
+                                                            <img src="{{ asset('images/news' . $new->image) }}"
+                                                                alt="Placeholder image" width="50" height="50">
+                                                        </div>
+                                                    </div>
+                                                </td>
 
                                                 <td class="align-middle text-center text-sm">
-                                                    <p class="text-sm font-weight-bold mb-0">{{ $news->getLocalized('title') }}</p>
+                                                    <p class="text-sm font-weight-bold mb-0">
+                                                        {{ $new->getLocalized('title') }}</p>
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0"
                                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                                        {{ $new->topic->name }}</p>
+                                                        {{ $new->topic->getLocalized('name') }}</p>
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0"
                                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                                        {{ $news->getLocalized('content') }}</p>
+                                                        {{ $new->getLocalized('content') }}</p>
                                                 </td>
 
                                                 <td class="align-middle text-end">

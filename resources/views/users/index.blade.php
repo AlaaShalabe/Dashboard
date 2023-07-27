@@ -31,9 +31,7 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 email</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                password</th>
+
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Action</th>
@@ -63,11 +61,7 @@
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0">{{ $user->email }}</p>
                                                 </td>
-                                                <td class="align-middle text-center text-sm">
-                                                    <p class="text-sm font-weight-bold mb-0"
-                                                        style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                                        {{ $user->password }}</p>
-                                                </td>
+
 
                                                 <td class="align-middle text-end">
                                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">

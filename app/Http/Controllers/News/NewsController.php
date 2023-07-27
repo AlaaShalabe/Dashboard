@@ -58,12 +58,18 @@ class NewsController extends Controller
             'content_ar' => 'required|string',
         ]);
         //dd($request);
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->storeAs('images/news', $imageName, 'public');
+        }
         $news = News::create([
             'title_en' => $request->title_en,
             'title_ar' => $request->title_ar,
             'topic_id' => $request->topic_id,
             'content_en' => $request->content_en,
-            'content_ar' => $request->content_ar
+            'content_ar' => $request->content_ar,
+            'image'=>$imageName
         ]);
 
         return redirect()->route('news.index')->with('success', 'News created successfully');

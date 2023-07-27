@@ -37,16 +37,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                                style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
-                                        background-size: cover;">
+                        <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column"
+                            style=" background-color:rgba(10, 214, 214, 0.952)  ; opacity: 0.5;">
+                            <div>
                                 <span class="mask bg-gradient-primary opacity-6"></span>
-                                <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new
-                                    currency"</h4>
-                                <p class="text-white position-relative">The more effortless the writing looks, the more
-                                    effort the writer actually put into the process.</p>
+                                <h4 class="mt-5 text-white font-weight-bolder position-relative">
+                                    <p class="text-white position-relative">,<img src="./img/Asset 49icon.svg"
+                                            alt="" width="450" height="450">
+                                    </p>
                             </div>
                         </div>
                     </div>

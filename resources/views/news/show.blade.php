@@ -34,8 +34,11 @@
                                 <div class="card">
 
                                     <div class="card-body px-4 pt-2">
+                                        <p>
+                                            <img src="{{ asset('images/news' . $news->image) }}" alt="Placeholder image">
+                                        </p>
                                         <p><strong>Title:</strong>{{ $news->getLocalized('title') }}</p>
-                                        <p><strong>Content:</strong> {{ $news->topic->name }}</p>
+                                        <p><strong>Content:</strong> {{ $news->topic->getLocalized('name') }}</p>
                                         <p><strong>Topic:</strong> {{ $news->getLocalized('content') }}</p>
                                         <p><strong>Created at:</strong> {{ $news->created_at->format('d - M') }}</p>
 

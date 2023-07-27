@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -26,5 +27,12 @@ class Article extends Model
     {
         $locale = App::currentLocale();
         return $this->attributes["{$column}_{$locale}"];
+    }
+
+    public function lastArticle()
+    {
+        $lastArticle = Article::latest('created_at')->first();
+        $posted_at = Carbon::parse($lastArticle)->diffForHumans(now());
+        return $posted_at;
     }
 }
