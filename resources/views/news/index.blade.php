@@ -54,7 +54,7 @@
 
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <h6 class="mb-0 text-sm"></h6>
-                                                            <img src="{{ asset('images/news' . $new->image) }}"
+                                                            <img src="{{ asset('images/news/' . $new->image) }}"
                                                                 alt="Placeholder image" width="50" height="50">
                                                         </div>
                                                     </div>

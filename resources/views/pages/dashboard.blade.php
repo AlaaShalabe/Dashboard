@@ -16,7 +16,7 @@
                                     </h5>
                                     <p class="mb-0">
                                         <span class="text-success text-sm font-weight-bolder"></span>
-                                        {{-- since yesterday --}}
+                                        {{-- {{ $articles->created_at }} --}}
                                     </p>
                                 </div>
                             </div>
