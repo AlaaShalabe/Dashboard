@@ -69,7 +69,7 @@
                                 <span class="mask bg-gradient-primary opacity-6"></span>
                                 <h4 class="mt-5 text-white font-weight-bolder position-relative">
                                     <p class="text-white position-relative">,<img src="./img/Asset 49icon.svg"
-                                            alt="" width="450" height="450">
+                                            alt="" width="400" height="400">
                                     </p>
                             </div>
                         </div>

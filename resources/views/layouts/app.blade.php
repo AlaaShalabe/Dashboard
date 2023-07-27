@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/img/Asset 51icon.svg">
-    <script src="https://kit.fontawesome.com/fa92797f6d.js" crossorigin="anonymous"></script>
+
     <title>
         AlMukhtar
     </title>

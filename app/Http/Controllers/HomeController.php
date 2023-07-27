@@ -33,4 +33,5 @@ class HomeController extends Controller
         $topics = Topic::all();
         return view('pages.dashboard', ['articles' => $articles, 'users' => $users, 'news' => $news, 'topics' => $topics]);
     }
+    
 }
