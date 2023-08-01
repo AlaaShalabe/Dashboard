@@ -27,9 +27,19 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Name</label>
+                                                    <label for="example-text-input" class="form-control-label">Name in
+                                                        English</label>
                                                     <input class="form-control" type="text"
-                                                        value="{{ old('name', $topic->name) }}" name="name"
+                                                        value="{{ old('name', $topic->name_en) }}" name="name_en"
+                                                        required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Name in
+                                                        Arabic</label>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ old('name', $topic->name_ar) }}" name="name_ar"
                                                         required="">
                                                 </div>
                                             </div>

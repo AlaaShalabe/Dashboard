@@ -18,7 +18,7 @@
                                         <div class="card-image border-radius-lg position-relative">
                                             <div class="row">
                                                 <div class="col-md-12 d-flex align-items-center">
-                                                    <h6>{{ $topic->name }}</h6>
+                                                    <h6>{{ $topic->getLocalized('name') }}</h6>
                                                     <div class=" col-md-6 text-end">
                                                         <a href="{{ route('topics.edit', $topic) }}" class="btn btn-success"
                                                             style="">
@@ -28,7 +28,7 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger"
-                                                                onclick="return confirm('Are you sure you want to delete this {{ $topic->name }} News?')">Delete</button>
+                                                                onclick="return confirm('Are you sure you want to delete this {{ $topic->getLocalized('name') }} News?')">Delete</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -48,11 +48,11 @@
                                                             class="img-fluid">
                                                     </div>
                                                     <p class="card-description mb-5 mt-3">
-                                                        {{ $new->content }}
+                                                        {{ $new->getLocalized('content') }}
                                                     </p>
                                                     <div class="pull-left">
                                                         <span>―</span>
-                                                        {{ $new->title }}
+                                                        {{ $new->getLocalized('title') }}
                                                     </div>
                                                     <a href="{{ route('news.show', $new) }}"
                                                         class="text-success icon-move-right pull-right">Read More

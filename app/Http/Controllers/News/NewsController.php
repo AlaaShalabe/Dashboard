@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\News;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -69,10 +70,10 @@ class NewsController extends Controller
             'topic_id' => $request->topic_id,
             'content_en' => $request->content_en,
             'content_ar' => $request->content_ar,
-            'image'=>$imageName
+            'image' => $imageName
         ]);
 
-        return redirect()->route('news.index')->with('success', 'News created successfully');
+        return redirect()->route('news.index')->with('status', 'News created successfully');
     }
 
     /**
@@ -95,8 +96,7 @@ class NewsController extends Controller
     public function edit(News $news)
     {
         $topics = Topic::all();
-        return view('news.edit', compact('news'), ['topics' => $topics])
-            ->with('success', 'News updated successfully');
+        return view('news.edit', compact('news'), ['topics' => $topics]);
     }
 
     /**
@@ -122,11 +122,18 @@ class NewsController extends Controller
         $news->content_ar = $request->content_ar;
         $news->topic_id = $request->topic_id;
 
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
+            Storage::disk('public')->delete('images/' . $news->image);
+            $newImage = $request->file('image');
+            $newImageName = time() . '_' . $newImage->getClientOriginalName();
+            $newImage->storeAs('images/news', $newImageName, 'public');
+            $news->image = $newImageName;
+        }
 
         $news->save();
 
-        return redirect()->route('news.index');
+        return redirect()->route('news.index')->with('status', 'News updated successfully');
     }
 
     /**
@@ -138,6 +145,6 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
         $news->delete();
-        return redirect()->back();
+        return redirect()->route('news.index')->with('status', 'News deleted successfully');
     }
 }

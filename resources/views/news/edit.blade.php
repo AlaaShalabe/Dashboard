@@ -41,7 +41,7 @@
                                                     <label for="example-text-input" class="form-control-label">Title in
                                                         Arabic</label>
                                                     <input class="form-control" type="text"
-                                                        value="{{ old('title_ae', $news->title_ae) }}" name="title_ae"
+                                                        value="{{ old('title_ar', $news->title_ar) }}" name="title_ar"
                                                         required="">
                                                 </div>
                                             </div>
@@ -83,6 +83,14 @@
                                                     <textarea class="form-control @error('content_ar') is-invalid @enderror" id="blog-description" name="content_ar"
                                                         cols="30" rows="10" required>{{ $news->content_ar }}</textarea>
 
+                                                </div>
+                                            </div>
+                                            {{-- Image --}}
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Image</label>
+                                                    <input class="form-control" type="file" name="image"
+                                                        required="">
                                                 </div>
                                             </div>
                                         </div>

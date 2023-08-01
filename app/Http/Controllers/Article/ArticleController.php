@@ -69,10 +69,10 @@ class ArticleController extends Controller
             'content_ar' => $request->content_ar,
             'image' => $imageName
         ]);
-        
+
 
         return redirect()->route('articles.index')
-            ->with('success', 'Article created successfully');
+            ->with('status', 'Article created successfully');
     }
 
     /**
@@ -95,8 +95,7 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
 
-        return view('articles.edit', compact('article'))
-            ->with('success', 'Article updated successfully');
+        return view('articles.edit', compact('article'));
     }
 
     /**
@@ -130,7 +129,7 @@ class ArticleController extends Controller
         }
         $article->save();
 
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.index')->with('status', 'Article updated successfully');
     }
 
     /**
@@ -142,6 +141,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->back();
+        return redirect()->route('articles.index')->with('status', 'Article deleted successfully');
     }
 }

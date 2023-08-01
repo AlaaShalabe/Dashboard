@@ -14,6 +14,19 @@
                 </div> --}}
                 <div class="card mb-4">
                     <div class="card-header  ">
+                        <div class="container">
+                            <div class="row justify-content-md-center">
+                                <div class="col-10">
+                                    <span>
+                                        @if (session($key ?? 'status'))
+                                            <div class="alert alert-secondary" role="alert">
+                                                <strong>{{ session($key ?? 'status') }}</strong>
+                                            </div>
+                                        @endif
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-8 d-flex align-items-center">
                                 <h6>News</h6>
@@ -23,6 +36,7 @@
                                     News</a>
                             </div>
                         </div>
+
                         <div class="card-body px-0 pt-0 pb-2" style="margin-top:3%">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">

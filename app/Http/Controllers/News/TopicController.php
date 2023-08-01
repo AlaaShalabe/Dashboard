@@ -49,10 +49,10 @@ class TopicController extends Controller
             'name_en' => 'required|string|unique:topics,name_en',
             'name_ar' => 'required|string|unique:topics,name_ar'
         ]);
-     //   dd($request);
+        //   dd($request);
 
         $topic = Topic::create($data);
-        return view('topics.index');
+        return redirect()->route('topics.index')->with('status', 'Topic created successfully');
     }
 
     /**
@@ -87,14 +87,15 @@ class TopicController extends Controller
     public function update(Request $request, Topic $topic)
     {
         $request->validate([
-            'name_en' => 'string|unique:topics,name',
-            'name_ar' => 'string|unique:topics,name',
+            'name_en' => 'string',
+            'name_ar' => 'string',
 
         ]);
         $topic->name_en = $request->input('name_en');
         $topic->name_ar = $request->input('name_ar');
+
         $topic->save();
-        return redirect()->route('topics.index');
+        return redirect()->route('topics.index')->with('status', 'Topic updated successfully');
     }
 
     /**
@@ -106,6 +107,6 @@ class TopicController extends Controller
     public function destroy(Topic $topic)
     {
         $topic->delete();
-        return redirect()->back();
+        return redirect()->route('topics.index')->with('status', 'Topic deleted successfully');
     }
 }
