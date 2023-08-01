@@ -107,8 +107,24 @@
         </div>
 
 
-        @include('layouts.footers.auth.footer')
     </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-10">
+                <span>
+                    @if (session($key ?? 'status'))
+                        <div class="alert alert-secondary" role="alert">
+                            <strong>{{ session($key ?? 'status') }}</strong>
+                        </div>
+                    @endif
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    @include('layouts.footers.auth.footer')
 @endsection
 
 @push('js')

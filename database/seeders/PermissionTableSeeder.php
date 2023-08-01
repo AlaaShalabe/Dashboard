@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -14,30 +15,31 @@ class PermissionTableSeeder extends Seeder
     public function run()
     {
         $permissions = [
-           'role-list',
-           'role-create',
-           'role-edit',
-           'role-delete',
-           'user-list',
-           'user-create',
-           'user-edit',
-           'user-delete',
-           'news-list',
-           'news-create',
-           'news-edit',
-           'news-delete',
-           'topics-list',
-           'topics-create',
-           'topics-edit',
-           'topics-delete',
-           'article-list',
-           'article-create',
-           'article-edit',
-           'article-delete'
+            'role-list',
+            'role-create',
+            'role-edit',
+            'role-delete',
+            'user-list',
+            'user-create',
+            'user-edit',
+            'user-delete',
+            'news-list',
+            'news-create',
+            'news-edit',
+            'news-delete',
+            'topics-list',
+            'topics-create',
+            'topics-edit',
+            'topics-delete',
+            'article-list',
+            'article-create',
+            'article-edit',
+            'article-delete',
+            'email-list'
         ];
 
         foreach ($permissions as $permission) {
-             Permission::create(['name' => $permission]);
+            Permission::create(['name' => $permission]);
         }
     }
 }

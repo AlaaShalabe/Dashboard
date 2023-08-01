@@ -32,10 +32,12 @@ use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\News\TopicController;
 use App\Http\Controllers\Article\ArticleController;
+use App\Http\Controllers\EmailController;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::get('/emails', [EmailController::class, 'index'])->name('emails.index');
     // NEWS
     Route::get('/news', [NewsController::class, 'index'])->name('news.index');
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
