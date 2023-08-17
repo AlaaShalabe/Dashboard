@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title_en');
             $table->string('title_ar');
             $table->foreignId('topic_id')->constrained()->cascadeOnDelete();
-            $table->longText('content_en');
-            $table->longText('content_ar');
+            $table->string('content_en');
+            $table->string('content_ar');
             $table->string('image')->nullable();
             $table->timestamps();
         });

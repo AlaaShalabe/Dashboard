@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Article;
 use App\Models\News;
@@ -31,7 +33,6 @@ class HomeController extends Controller
         $users = User::all();
         $news = News::all();
         $topics = Topic::all();
-        return view('pages.dashboard', ['articles' => $articles, 'users' => $users, 'news' => $news, 'topics' => $topics]);
+        return view('dashboard', ['articles' => $articles, 'users' => $users, 'news' => $news, 'topics' => $topics]);
     }
-    
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Article;
+namespace App\Http\Controllers\Admin\Article;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
@@ -47,6 +47,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $data = $request->validate([
             'title_en' => 'required|string',
             'title_ar' => 'required|string',
