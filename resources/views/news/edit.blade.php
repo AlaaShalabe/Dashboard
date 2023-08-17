@@ -45,8 +45,16 @@
                                                         required="">
                                                 </div>
                                             </div>
+                                            {{-- Image --}}
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Image</label>
+                                                    <input class="form-control" type="file" name="image"
+                                                        required="">
+                                                </div>
+                                            </div>
                                             {{-- Tpoic_id --}}
-                                            <div class="field">
+                                            <div class="dropdown">
                                                 <label class="label">Topic</label>
                                                 <div class="control">
                                                     <div class="select @error('topic_id') is-danger @enderror">
@@ -70,9 +78,11 @@
                                             <div class="row mb-4">
                                                 <div class="col-sm-12">
                                                     <label>Content in English</label>
-                                                    <textarea class="form-control @error('content_en') is-invalid @enderror" id="blog-description" name="content_en"
+                                                    <textarea class="summernote @error('content_en') is-invalid @enderror" id="blog-description" name="content_en"
                                                         cols="30" rows="10" required>{{ $news->content_en }}</textarea>
-
+                                                    @error('content_en')
+                                                        <div class="help is-danger">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             {{-- Content --}}
@@ -80,19 +90,14 @@
                                             <div class="row mb-4">
                                                 <div class="col-sm-12">
                                                     <label>Content in Arabic</label>
-                                                    <textarea class="form-control @error('content_ar') is-invalid @enderror" id="blog-description" name="content_ar"
+                                                    <textarea class="summernote @error('content_ar') is-invalid @enderror" id="blog-description" name="content_ar"
                                                         cols="30" rows="10" required>{{ $news->content_ar }}</textarea>
+                                                    @error('content_ar')
+                                                        <div class="help is-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
 
-                                                </div>
-                                            </div>
-                                            {{-- Image --}}
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Image</label>
-                                                    <input class="form-control" type="file" name="image"
-                                                        required="">
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="text-center">
                                             <a href="{{ route('topics.index') }}" class="btn btn-info">Back</a>
@@ -109,3 +114,21 @@
         @include('layouts.footers.auth.footer')
     </div>
 @endsection
+@push('js')
+    <script>
+        $('.summernote').summernote({
+            inheritPlaceholder: true,
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endpush

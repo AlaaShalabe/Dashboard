@@ -45,9 +45,10 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Title</th>
+
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Content</th>
+                                                Created at</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Action</th>
@@ -75,22 +76,23 @@
                                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
                                                         {{ $article->getLocalized('title') }}</p>
                                                 </td>
+
                                                 <td class="align-middle text-center text-sm">
                                                     <p class="text-sm font-weight-bold mb-0"
                                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                                                        {{ $article->getLocalized('content') }}</p>
+                                                        {{ $article->created_at->format('d M Y - h:m') }}</p>
                                                 </td>
 
                                                 <td class="align-middle text-end">
                                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                                        <a href="{{ route('articles.show', $article) }}"
-                                                            class="btn btn-info me-2">View</a>
-                                                        <a href="{{ route('articles.edit', $article) }}"
-                                                            class="btn btn-primary me-2">Edit</a>
                                                         <form action="{{ route('articles.destroy', $article) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
+                                                            <a href="{{ route('articles.show', $article) }}"
+                                                                class="btn btn-info me-2">View</a>
+                                                            <a href="{{ route('articles.edit', $article) }}"
+                                                                class="btn btn-primary me-2">Edit</a>
                                                             <button type="submit" class="btn btn-danger"
                                                                 onclick="return confirm('Are you sure you want to delete this News?')">Delete</button>
                                                         </form>
