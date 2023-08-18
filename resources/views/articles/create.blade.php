@@ -77,36 +77,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-center">
-                                            <a href="{{ route('articles.index') }}" class="btn btn-info">Back</a>
-                                            <button type="submit" class="btn btn-primary">Save</button>
-                                        </div>
+                                    </div>
+                                    <div class="col-md-11 text-end">
+                                        <a href="{{ route('articles.index') }}" class="btn btn-info">Back</a>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
                                 </form>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
+            @include('layouts.footers.auth.footer')
         </div>
-        @include('layouts.footers.auth.footer')
-    </div>
-@endsection
-@push('js')
-    <script>
-        $('.summernote').summernote({
-            inheritPlaceholder: true,
-            tabsize: 2,
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-    </script>
-@endpush
+    @endsection
+    @push('js')
+        <script>
+            $('.summernote').summernote({
+                inheritPlaceholder: true,
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        </script>
+    @endpush

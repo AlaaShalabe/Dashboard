@@ -33,7 +33,7 @@
 
                                     <div class="card-body px-4 pt-2">
                                         <p style="text-align-last: center">
-                                            <img src="{{ asset('images/news/' . $news->image) }}" alt="Placeholder image">
+                                            <img src="{{ asset('images/news/' . $news->image) }}" alt="Placeholder image" width="400" height="400">
                                         </p>
 
                                         <p><strong><B>Details of {{ $news->title_en }}: </B></strong></p>

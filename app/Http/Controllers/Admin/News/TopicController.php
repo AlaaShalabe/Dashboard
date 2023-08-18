@@ -21,7 +21,7 @@ class TopicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function topics()
+    public function index()
     {
         $topics = Topic::all();
         return view('topics.index', compact('topics'));

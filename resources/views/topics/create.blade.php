@@ -42,18 +42,18 @@
                                             </div>
 
                                         </div>
-                                        <div class="text-center">
-                                            <a href="{{ route('topics.index') }}" class="btn btn-info">Back</a>
-                                            <button type="submit" class="btn btn-primary">Save</button>
-                                        </div>
+                                    </div>
+                                    <div class="col-md-11 text-end">
+                                        <a href="{{ route('topics.index') }}" class="btn btn-info">Back</a>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
                                 </form>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
+            @include('layouts.footers.auth.footer')
         </div>
-        @include('layouts.footers.auth.footer')
-    </div>
-@endsection
+    @endsection

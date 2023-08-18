@@ -29,7 +29,7 @@
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">User</span>
+                        <span class="nav-link-text ms-1">Users</span>
                     </a>
                 </li>
             @endcan
@@ -43,7 +43,7 @@
                             class="icon icon-setting icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-settings text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Role</span>
+                        <span class="nav-link-text ms-1">Roles</span>
                     </a>
                 </li>
             @endcan
@@ -55,7 +55,7 @@
                             class="icon icon-setting icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Topic </span>
+                        <span class="nav-link-text ms-1">Topics </span>
                     </a>
                 </li>
             @endcan

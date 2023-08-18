@@ -18,14 +18,14 @@
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>
-                                        <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Email</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Created at
-                                            </th>
-                                        </tr>
+
+                                        <th>
+                                            Email</th>
+                                        <th>
+
+                                            Created at
+                                        </th>
+
                                     </thead>
                                     <tbody>
                                         @foreach ($emails as $data)
@@ -38,9 +38,9 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="align-middle text-center text-sm">
+                                                <td class="align-middle  text-sm">
                                                     <p class="text-sm font-weight-bold mb-0">
-                                                        {{ $data->created_at->format('D M Y') }}</p>
+                                                        {{ $data->created_at->format('d M Y - h:m') }}</p>
                                                 </td>
 
 
